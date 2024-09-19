@@ -1,0 +1,48 @@
+spring:            #全局配置
+  thymeleaf:
+    cache: false
+  profiles:
+    active: dev
+  redis:
+    host: 172.16.91.27 #Redis服务器地址  公司reids环境
+    port: 6379 #Redis端口号
+    database: 0 #Redis数据库索引（默认为0）
+    jedis:
+      pool:
+        max-active: 8 # 连接池最大连接数，默认为 8 。使用负数表示没有限制。
+        max-idle: 8 # 默认连接数最大空闲的连接数，默认为 8 。使用负数表示没有限制。
+        min-idle: 0 # 默认连接池最小空闲的连接数，默认为 0 。允许设置 0 和 正数。
+        max-wait: -1 # 连接池最大阻塞等待时间，单位：毫秒。默认为 -1 ，表示不限制。
+    password: yunqu168
+  elasticsearch:
+    rest:
+      uris: http://172.16.76.102:19200
+  main:
+    allow-bean-definition-overriding: true
+
+#cas:
+#  server:
+#    prefix: "https://cas.example.com:8443/cas"
+#  client:
+#    service-id: "your-service-id"
+#    service-url: "http://localhost:8081/login/cas"
+#    redirect-url: "http://localhost:8080"
+#  authentication:
+#    method: "BASIC"  # 可以是BASIC, FORM, SAML等
+
+
+
+
+
+comment.avatar: /images/avatar.jpg
+
+
+## 防止XSS攻击
+#xss:
+#  # 过滤开关
+#  enabled: true
+#  # 排除链接（多个用逗号分隔）
+#  excludes: /system/notice
+#  # 匹配链接
+#  urlPatterns: /hospital/list
+#  #/system/*,/monitor/*,/tool/*,/hospital/list

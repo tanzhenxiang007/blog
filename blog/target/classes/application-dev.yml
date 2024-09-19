@@ -1,0 +1,54 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    db1:
+      jdbc-url: jdbc:mysql://127.0.0.1:3306/db1?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf8&useSSL=false
+      username: root
+      password: root
+    db2:
+      jdbc-url: jdbc:mysql://172.16.85.24:3306/db2?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf8&useSSL=false
+      username: root
+      password: yunqu168
+  task:
+    scheduling:
+      pool:
+        size: 10
+      thread-name-prefix: tzx
+    execution:
+      shutdown:
+        #        线程关闭时是否等所有任务结束
+        await-termination: false
+        #        线程最大的等待时间，防止线程陷入循环关不掉
+        await-termination-period: 10s
+
+pagehelper:                #分页插件
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params:
+
+mybatis:
+  type-aliases-package: com.blog.pojo   # 指定别名设置的包为所有entity
+  mapper-locations: classpath:mapper/*.xml   #ָ指定myBatis的核心配置文件与Mapper映射文件
+  configuration:
+    map-underscore-to-camel-case: true # 驼峰命名规范  比如数据库中字段名为：user_name， 那么在实体类中可以定义属性为 userName （甚至可以写成 username，也能映射上）
+
+logging:  #日志级别
+  level:
+    root: info
+    com.blog: debug
+  file: log/blog-dev.log
+
+server:
+  port: 8081 #yml配置文件并设置启动的端口号，默认为8080
+
+  #开发环境
+
+# 配置多个微服务的地址
+url:
+  # 订单微服务的地址
+  orderUrl: http://localhost:8002
+  # 用户微服务的地址
+  userUrl: http://localhost:8003
+  # 购物车微服务的地址
+  shoppingUrl: http://localhost:8004
