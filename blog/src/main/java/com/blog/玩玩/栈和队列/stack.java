@@ -4,6 +4,7 @@ import java.util.Stack;
 
 public class stack {
     public static void main(String[] args) {
+        //栈是后进先出的数据结构‌
         //逆波兰表达式遵循从左到右的运算,所以采用栈来计算
         //如果遇到数字,将数字入栈
         //如果遇到运算符,将栈内出栈2个元素,通过运算符计算后,将计算结果放入栈中.

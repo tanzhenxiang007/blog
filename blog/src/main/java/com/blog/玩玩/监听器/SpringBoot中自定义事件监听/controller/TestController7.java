@@ -22,7 +22,7 @@ public class TestController7 {
     public String getRequestInfo(HttpServletRequest request, @RequestParam String name) {
         log.info("getRequestInfo请求进入");
         User2 user = new User2(1, name, "男");
-        userService.getUser2(user);
+        User2 user2 = userService.getUser2(user);
 //        System.out.println("requestListener中的初始化的name数据：" + request.getAttribute("name"));
         return "success";
     }

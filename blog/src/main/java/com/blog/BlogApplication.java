@@ -19,7 +19,7 @@ public class BlogApplication {
 		ConfigurableApplicationContext context = SpringApplication.run(BlogApplication.class, args);
 
 
-        //获取user Bean
+        //获取user Bean   检验类是否存在
         Object user = context.getBean("user");
         System.out.println(user);
     }

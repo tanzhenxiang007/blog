@@ -11,6 +11,8 @@ public class UserConfig {
 @Bean
 @Conditional(ClassCondition.class) //重写Condition 判断某个类是否存在 存在才创建bean
     public User user(){
-        return new User();
+    User user = new User();
+    user.setNickname("重写Condition 判断某个类是否存在 存在才创建bean");
+    return user;
     }
 }

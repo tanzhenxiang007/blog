@@ -25,7 +25,7 @@ public class MyServletRequestListener implements ServletRequestListener {
         logger.info("session id为：{}", request.getRequestedSessionId());
         logger.info("request url为：{}", request.getRequestURL());
         //这里写死，但可以动态获取request对象里面的值进行设置
-        request.setAttribute("name", "测试");
+        request.setAttribute("name", request.getParameter("name")==null?"默认值=测试":request.getParameter("name"));
     }
 
     @Override
